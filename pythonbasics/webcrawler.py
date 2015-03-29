@@ -1,17 +1,13 @@
 import requests
 from bs4 import BeautifulSoup
 
-def spider(max_page):
-    page = 1
-    while page <= max_page:
-        url = ""
-
 def crawler():
     url = "https://www.thenewboston.com/tops.php?type=text&period=this-month"
     domain = 'https://www.thenewboston.com'
     content = requests.get(url)
     plain_text = content.text
     soup = BeautifulSoup(plain_text)
+
 
     for link in soup.findAll('a', {'class': 'index_singleListingTitles'}):
         href = domain + link.get('href')
@@ -29,7 +25,4 @@ def crawl_single_page(item_url):
         print(domain + link.get('href'))
 
 crawler()
-
-
-
 
