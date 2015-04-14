@@ -2,8 +2,6 @@ __author__ = 'leo'
 
 
 import urllib.request
-import re
-import requests
 from bs4 import BeautifulSoup
 
 
@@ -16,13 +14,13 @@ for page in pages:
     mytable = tables[0]
     monitorRows = mytable.findChildren('tr',{'style':'background-color: #f9f9f9;'})
     monitorRows += mytable.findChildren('tr',{'style':'background-color: #ffffff;'})
-    resultlist = []
+    monitorlist = []
     resultlist_with_comment = []
     for monitorRow in monitorRows:
         monitorName = monitorRow.findChild('strong').get_text()
         table = monitorRow.findChild('table')
         comment = table.findChild('div', {'style':'text-align:left;background:#fff;border:1px solid #ccc;line-height:22px;'}).get_text().strip()
         if(comment == ''):
-            resultlist.append(monitorName)
-    for relt in resultlist:
-        print(relt)
+            monitorlist.append(monitorName)
+    for monitor in monitorlist:
+        print(monitor)
