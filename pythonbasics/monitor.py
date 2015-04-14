@@ -4,7 +4,9 @@ __author__ = 'leo'
 import urllib.request
 from bs4 import BeautifulSoup
 
-
+'''
+This function is to find all monitor names without monitor comments.
+'''
 pages= [1,2,3,4,5]
 url = "http://lr.com:99/hot_cac/graph_view.php?action=tre&tre_id=243&leaf_id=159&page="
 for page in pages:
