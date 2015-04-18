@@ -24,5 +24,6 @@ for page in pages:
         comment = table.findChild('div', {'style':'text-align:left;background:#fff;border:1px solid #ccc;line-height:22px;'}).get_text().strip()
         if(comment == ''):
             monitorlist.append(monitorName)
+    # sent the result to stdout
     for monitor in monitorlist:
         print(monitor)
